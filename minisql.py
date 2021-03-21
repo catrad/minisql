@@ -1,4 +1,4 @@
-# minisql cursor.execute("SELECT balance FROM users WHERE user_id=?", (replyid,)).fetchall()
+# BETA V 0.2
 def add(baza, yach, value):
 	import sqlite3
 	import traceback
@@ -57,5 +57,29 @@ def edit(baza, yach, edit_to, key, key1):
 	cursor.close()
 	if (sqlite_connection):
 	        sqlite_connection.close()
+
+def iget(baza, yach, key, key1, key2, key3):
+	import sqlite3
+	sqlite_connection = sqlite3.connect(baza[0])
+	cursor = sqlite_connection.cursor()
+	cursor.execute(f"SELECT {yach} FROM {baza[1]} WHERE {key}={key1} AND {key2}={key3}")
+	results = cursor.fetchall() 
+	sqlite_connection.commit()
+	cursor.close()
+	return results[0][0]
+
+def iedit(baza, yach, edit_to, key, key1, key2, key3):
+	import sqlite3
+	sqlite_connection = sqlite3.connect(baza[0])
+	cursor = sqlite_connection.cursor()
+	sql_update_query = """Update %s set %s = ? where %s = ? and %s = ?""" % (baza[1], yach, key, key2)
+	data = (edit_to, key1, key3)
+	cursor.execute(sql_update_query, data)
+	sqlite_connection.commit()
+	return True
+	cursor.close()
+	if (sqlite_connection):
+	        sqlite_connection.close()
+
 
 
