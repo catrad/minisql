@@ -63,4 +63,10 @@ z = db.sread("id")
 z = db.sread("id", sort_type='DESC')
 ```
 
+### Request
+```
+db.request("SELECT ...")
+```
+Сделать свой запрос к базе.
+
 **Различные примеры вы можете найти в папке examples.**
