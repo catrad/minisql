@@ -1,4 +1,6 @@
 # Minisql V2.0
+*Скачать: https://t.me/joinchat/rZ1DR8YL7tsxNmJi*
+
 В общем есть 6 функций: add, read, get, edit, sread. request.
 
 Add - добавить значения в БД
