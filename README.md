@@ -19,7 +19,7 @@ db = Database(db="sqltest.db", table="test")
 ```
 from minisql import Database
 db = Database(db="sqltest.db")
-db.table("test")
+db.tableset("test")
 ```
 ### Add
 ```
